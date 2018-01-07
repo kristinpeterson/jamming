@@ -5,10 +5,13 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            term: ''
+            term: window.localStorage.getItem('term')
         };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        if(this.state.term) {
+            this.handleSearch();
+        }
     }
 
     handleTermChange(e) {
@@ -16,15 +19,19 @@ class Search extends Component {
       this.setState({ term: term });
     }
 
-    handleSearch(e) {
-        this.props.searchSpotify(this.state.term);
-        e.preventDefault();
+    handleSearch() {
+        const term = this.state.term;
+        this.props.clearResults();
+        window.localStorage.setItem('term', term);
+        this.props.searchSpotify(term);
     }
 
     render() {
         return (
             <div className='Search'>
-                <input onChange={this.handleTermChange} placeholder='Enter a Song, Album or Artist' />
+                <input onChange={this.handleTermChange} 
+                        placeholder='Enter a Song, Album or Artist'
+                        value={this.state.term} />
                 <a onClick={this.handleSearch}>SEARCH</a>
             </div>
         );

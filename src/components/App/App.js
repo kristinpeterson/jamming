@@ -16,6 +16,7 @@ class App extends Component {
       this.addTrack = this.addTrack.bind(this);
       this.removeTrack = this.removeTrack.bind(this);
       this.savePlaylist = this.savePlaylist.bind(this);
+      this.clearResults = this.clearResults.bind(this);
   }
 
   searchSpotify(term) {
@@ -51,12 +52,19 @@ class App extends Component {
     );
   }
 
+  clearResults() {
+    this.setState({
+      results: []
+    });
+  }
+
   render() {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <Search searchSpotify={this.searchSpotify} />
+          <Search searchSpotify={this.searchSpotify}
+                  clearResults={this.clearResults} />
           <div className="App-playlist">
             <Results tracks={this.state.results} 
                       addTrack={this.addTrack} />
