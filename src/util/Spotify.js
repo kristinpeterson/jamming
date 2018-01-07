@@ -42,7 +42,7 @@ const Spotify = {
                 ).then(
                     jsonResponse => {
                         if(jsonResponse.tracks) {
-                            window.localStorage.setItem('term', '');
+                            window.sessionStorage.setItem('term', '');
                             return jsonResponse.tracks.items.map(
                                 track => {
                                     return {

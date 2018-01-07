@@ -5,7 +5,7 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            term: window.localStorage.getItem('term')
+            term: window.sessionStorage.getItem('term')
         };
         this.handleTermChange = this.handleTermChange.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
@@ -22,7 +22,7 @@ class Search extends Component {
     handleSearch() {
         const term = this.state.term;
         this.props.clearResults();
-        window.localStorage.setItem('term', term);
+        window.sessionStorage.setItem('term', term);
         this.props.searchSpotify(term);
     }
 
