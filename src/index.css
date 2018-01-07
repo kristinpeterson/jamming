@@ -1,7 +1,6 @@
 body,
 html,
-#root,
-#root div:first-child {
+#root {
   height: 100%;
 }
 

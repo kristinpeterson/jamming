@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from '../Search/Search';
 import Spotify from '../../util/Spotify';
+import Results from '../Results/Results';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
         <div className="App">
           <Search searchSpotify={this.searchSpotify} />
           <div className="App-playlist">
+            <Results />
           </div>
         </div>
       </div>
