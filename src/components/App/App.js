@@ -31,7 +31,7 @@ class App extends Component {
         <div className="App">
           <Search searchSpotify={this.searchSpotify} />
           <div className="App-playlist">
-            <Results />
+            <Results results={this.state.results} />
           </div>
         </div>
       </div>
