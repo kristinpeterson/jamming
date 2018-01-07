@@ -22,7 +22,7 @@ const Spotify = {
         } else {
             const clientID = '99843be16e994f708d26801c1dd2a282';
             const responseType = 'token';
-            const redirectURI = 'http://localhost:3000/';
+            const redirectURI = process.env.REDIRECT_URI;
             const scope = 'playlist-modify-private';
             window.location = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=${responseType}&redirect_uri=${redirectURI}&scope=${scope}`;
         }
