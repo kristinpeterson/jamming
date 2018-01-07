@@ -3,10 +3,6 @@ import './Results.css';
 import TrackList from '../TrackList/TrackList';
 
 class Results extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div className='Results'>
