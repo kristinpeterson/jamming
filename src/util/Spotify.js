@@ -20,7 +20,7 @@ const Spotify = {
             window.history.pushState('accessToken', null, '/');
             return accessToken;
         } else {
-            const clientID = '99843be16e994f708d26801c1dd2a282';
+            const clientID = process.env.REACT_APP_CLIENT_ID;
             const responseType = 'token';
             const redirectURI = process.env.REACT_APP_REDIRECT_URI;
             const scope = 'playlist-modify-private';
