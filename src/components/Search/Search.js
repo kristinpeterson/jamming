@@ -13,7 +13,7 @@ class Search extends Component {
 
     handleTermChange(e) {
       const term = e.target.value;
-      this.setState( { term: term } );
+      this.setState({ term: term });
     }
 
     handleSearch(e) {
@@ -24,7 +24,7 @@ class Search extends Component {
     render() {
         return (
             <div className='Search'>
-                <input onChange={this.handleTermChange} placeholder='Enter a Song, Album or Artist'/>
+                <input onChange={this.handleTermChange} placeholder='Enter a Song, Album or Artist' />
                 <a onClick={this.handleSearch}>SEARCH</a>
             </div>
         );

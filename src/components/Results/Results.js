@@ -7,7 +7,7 @@ class Results extends Component {
         return (
             <div className='Results'>
                 <h2>Results</h2>
-                <TrackList results={this.props.results} />
+                <TrackList action='+' onClick={this.props.addTrack} tracks={this.props.tracks} />
             </div>
         );
     }

@@ -55,6 +55,77 @@ const Spotify = {
                         }
                     }
                 );
+    },
+
+    createPlaylist(userID, playlistName, tracks) {
+        const url = `${corsAnywhere}${apiBaseURL}/users/${userID}/playlists`;
+        return fetch(
+                url,
+                {   
+                    method: 'POST',
+                    headers: { 
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({name: playlistName, public: 'false'})
+                }
+            ).then(
+                response => response.json(),
+                networkError => console.log(networkError.message)
+            ).then(
+                jsonResponse => {
+                    if(jsonResponse.id) {
+                        const playlistID = jsonResponse.id;
+                        Spotify.addTracks(userID, playlistID, tracks);
+                    }
+                }
+            );
+    },
+
+    addTracks(userID, playlistID, tracks) {
+        const url = `${corsAnywhere}${apiBaseURL}/users/${userID}/playlists/${playlistID}/tracks`;
+        const uris = tracks.map(track => `spotify:track:${track.id}`);
+        return fetch(
+                url,
+                {
+                    method: 'POST',
+                    headers: { 
+                        Authorization: `Bearer ${accessToken}`,
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({uris: uris})
+                }
+            ).then(
+                response => response.json(),
+                networkError => console.log(networkError.message)
+            ).then(
+                jsonResponse => {
+                    if(jsonResponse.snapshot_id) {
+                        return jsonResponse.snapshot_id;
+                    }
+                }
+            )
+    },
+
+    savePlaylist(playlistName, tracks) {
+        const accessToken = Spotify.getAccessToken();
+        const profileURL = `${corsAnywhere}${apiBaseURL}/me`;
+        return fetch(
+                profileURL,
+                {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                }
+            ).then(
+                response => response.json(),
+                networkError => console.log(networkError.message)
+            ).then(
+                jsonResponse => {
+                    if(jsonResponse.id) {
+                        const userID = jsonResponse.id;
+                        Spotify.createPlaylist(userID, playlistName, tracks);
+                    }
+                }
+            );
     }
 
 };
