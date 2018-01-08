@@ -1,3 +1,28 @@
+# Jammming
+
+A playlist creation app for Spotify, developed for [Codecademy - Build Frontend Web Apps from Scratch](https://www.codecademy.com/pro/intensive/build-frontend-web-apps-from-scratch).
+
+## Running the app
+
+### Locally
+
+`REACT_APP_CLIENT_ID=<SPOTIFY-CLIENT-ID> npm start`
+
+### Hosted on Heroku
+
+The app is also hosted on Heroku here: https://whispering-castle-84818.herokuapp.com/
+
+Deploying the app to Heroku was beyond painless. For details on how it was done check out [Deploying React with Zero Configuration](https://blog.heroku.com/deploying-react-with-zero-configuration).
+
+## Technical Design Document
+
+Following the initial implementation of the app, we were instructed to create a technical design document for an additional feature of our choice. Here is the feature I chose (which I also implemented):
+
+* Feature Name: `Save Search After Auth`
+* Technical Design Document: https://docs.google.com/document/d/1SHnWmXF7qKSpSyRIKIvWYWHTzoGHbJVJijDXstqD5MQ/edit?usp=sharing
+
+# React Boilerplate Readme
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
