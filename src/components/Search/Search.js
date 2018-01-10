@@ -37,6 +37,7 @@ class Search extends Component {
             <div className='Search'>
                 <input onChange={this.handleTermChange} 
                         onKeyPress={this.handleEnter}
+                        autoFocus='true'
                         {...this.state.term ? {value: this.state.term} : {placeholder: 'Enter a Song, Album or Artist'}} />
                 <a onClick={this.handleSearch}>SEARCH &crarr;</a>
             </div>
