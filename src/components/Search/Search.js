@@ -16,14 +16,13 @@ class Search extends Component {
 
     handleTermChange(e) {
       const term = e.target.value;
+      window.sessionStorage.setItem('term', term);
       this.setState({ term: term });
     }
 
     handleSearch() {
-        const term = this.state.term;
         this.props.clearResults();
-        window.sessionStorage.setItem('term', term);
-        this.props.searchSpotify(term);
+        this.props.searchSpotify(this.state.term);
     }
 
     render() {
