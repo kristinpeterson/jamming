@@ -30,8 +30,7 @@ class Search extends Component {
         return (
             <div className='Search'>
                 <input onChange={this.handleTermChange} 
-                        placeholder='Enter a Song, Album or Artist'
-                        value={this.state.term} />
+                        {...this.state.term ? {value: this.state.term} : {placeholder: 'Enter a Song, Album or Artist'}} />
                 <a onClick={this.handleSearch}>SEARCH</a>
             </div>
         );
